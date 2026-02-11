@@ -10,7 +10,7 @@ Windows Registry Editor Version 5.00
 "Icon"="cmd.exe"
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\claude\command]
-@="cmd.exe /k claude"
+@="cmd.exe /k \"%APPDATA%\\npm\\claude.cmd\""
 
 ; Right-click on a folder
 [HKEY_CLASSES_ROOT\Directory\shell\claude]
@@ -18,6 +18,6 @@ Windows Registry Editor Version 5.00
 "Icon"="cmd.exe"
 
 [HKEY_CLASSES_ROOT\Directory\shell\claude\command]
-@="cmd.exe /k cd /d \"%1\" && claude"
+@="cmd.exe /k cd /d \"%1\" && \"%APPDATA%\\npm\\claude.cmd\""
 
 
