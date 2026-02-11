@@ -8,14 +8,32 @@ Bonus: also disables the annoying Windows 11 "Show more options" submenu.
 ## Requirements
 
 - Windows 10/11
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and in PATH
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed via npm (`npm install -g @anthropic-ai/claude-code`)
 
 
 ## Installation
 
-1. Save  `claude-code-here.reg` somewhere
+1. Save  `claude_here.reg` somewhere
 2. Double-click to run it
 3. Restart Explorer: `taskkill /f /im explorer.exe && start explorer`
+
+
+## Claude Desktop app conflict
+
+If you also have the **Claude Desktop app** installed on Windows, the `claude` command in your PATH may resolve to the Electron desktop app instead of the Claude Code CLI. Symptoms include:
+
+```
+[ERROR:net\disk_cache\cache_util_win.cc:25] Unable to move the cache: Access denied
+[ERROR:net\disk_cache\disk_cache.cc:236] Unable to create cache
+```
+
+This `.reg` file avoids the conflict by calling the npm-installed CLI explicitly via `%APPDATA%\npm\claude.cmd` instead of the bare `claude` command.
+
+If you still have issues, verify that the CLI is installed:
+```
+where claude.cmd
+```
+The npm version should be at `%APPDATA%\npm\claude.cmd`.
 
 
 ## Uninstall
