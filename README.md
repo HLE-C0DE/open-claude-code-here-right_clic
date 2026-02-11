@@ -8,7 +8,7 @@ Bonus: also disables the annoying Windows 11 "Show more options" submenu.
 ## Requirements
 
 - Windows 10/11
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed via npm (`npm install -g @anthropic-ai/claude-code`)
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed (CLI at `%USERPROFILE%\.local\bin\claude.exe`)
 
 
 ## Installation
@@ -27,13 +27,13 @@ If you also have the **Claude Desktop app** installed on Windows, the `claude` c
 [ERROR:net\disk_cache\disk_cache.cc:236] Unable to create cache
 ```
 
-This `.reg` file avoids the conflict by calling the npm-installed CLI explicitly via `%APPDATA%\npm\claude.cmd` instead of the bare `claude` command.
+This `.reg` file avoids the conflict by calling the CLI explicitly via `%USERPROFILE%\.local\bin\claude.exe` instead of the bare `claude` command.
 
 If you still have issues, verify that the CLI is installed:
 ```
-where claude.cmd
+where claude
 ```
-The npm version should be at `%APPDATA%\npm\claude.cmd`.
+The CLI should be at `%USERPROFILE%\.local\bin\claude.exe`.
 
 
 ## Uninstall
